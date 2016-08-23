@@ -6,5 +6,6 @@ Reads text lines in the format \<Last name\>, \<first name\>, \<score\> where na
 
 Usage -
 
-Create a new  
-Scores can be used as is or sorted by descending score, by last name, by first name. 
+Create a new Scoroer object using Scorer.createScorer, providing a TextReader object from which single line extries as aboeve will be read.
+
+Scores can be used as is or sorted by descending score, by last name, by first name.
