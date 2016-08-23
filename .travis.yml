@@ -1,5 +1,2 @@
 language: csharp
 solution: OrderScores.sln
-script:
-  - xbuild /p:Configuration=Release OrderScores.sln
-  - nunit-console ./TestScoreSorter/bin/Release/TestScoreSorter.dll
