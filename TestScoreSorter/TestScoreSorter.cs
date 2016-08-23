@@ -23,6 +23,20 @@ namespace TestScoreSorter
         }
 
         [TestMethod]
+        public void TestLoadNonIntegerScore()
+        {
+            string strInputScore = "BUNDY, TERESSA, _88";
+            TextReader readRoutes = new StringReader(strInputScore);
+            List<string> listErrors = new List<string>();
+            Scorer scorerCreate = Scorer.createScorer(readRoutes, (error) => { listErrors.Add(error); });
+
+            Assert.AreEqual(0, scorerCreate.scores.Count);
+            Assert.AreEqual(2, listErrors.Count);
+            Assert.AreEqual("Unable to match score to BUNDY, TERESSA, _88, on line 1", listErrors[0]);
+            Assert.AreEqual("No scores were recorded", listErrors[1]);
+        }
+
+        [TestMethod]
         public void TestLoadDodgyScore()
         {
             string strInputDodgyScore = "B_UNDY, TERESSA, 88";
