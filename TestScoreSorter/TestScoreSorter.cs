@@ -32,7 +32,7 @@ namespace TestScoreSorter
 
             Assert.AreEqual(0, scorerCreate.scores.Count);
             Assert.AreEqual(2, listErrors.Count);
-            Assert.AreEqual("Unable to match score to B_UNDY, TERESSA, 88", listErrors[0]);
+            Assert.AreEqual("Unable to match score to B_UNDY, TERESSA, 88, on line 1", listErrors[0]);
             Assert.AreEqual("No scores were recorded", listErrors[1]);
         }
 
