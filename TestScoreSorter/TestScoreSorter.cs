@@ -1,15 +1,15 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.IO;
 using ScoreSorter;
 using System.Collections.Generic;
 
 namespace TestScoreSorter
 {
-    [TestClass]
+    [TestFixture]
     public class TestScoreSorter
     {
-        [TestMethod]
+        [Test]
         public void TestLoadScore()
         {
             string strInputScore = "BUNDY, TERESSA, 88";
@@ -22,7 +22,21 @@ namespace TestScoreSorter
             Assert.AreEqual(88, scorerCreate.scores[0].score);
         }
 
-        [TestMethod]
+        [Test]
+        public void TestLoadNonIntegerScore()
+        {
+            string strInputScore = "BUNDY, TERESSA, _88";
+            TextReader readRoutes = new StringReader(strInputScore);
+            List<string> listErrors = new List<string>();
+            Scorer scorerCreate = Scorer.createScorer(readRoutes, (error) => { listErrors.Add(error); });
+
+            Assert.AreEqual(0, scorerCreate.scores.Count);
+            Assert.AreEqual(2, listErrors.Count);
+            Assert.AreEqual("Unable to match score to BUNDY, TERESSA, _88, on line 1", listErrors[0]);
+            Assert.AreEqual("No scores were recorded", listErrors[1]);
+        }
+
+        [Test]
         public void TestLoadDodgyScore()
         {
             string strInputDodgyScore = "B_UNDY, TERESSA, 88";
@@ -36,7 +50,7 @@ namespace TestScoreSorter
             Assert.AreEqual("No scores were recorded", listErrors[1]);
         }
 
-        [TestMethod]
+        [Test]
         public void TestLoadManyScores()
         {
             string strInputScores = "BUNDY, TERESSA, 88\nSMITH, ALLAN, 70\nKING, MADISON, 88\nSMITH, FRANCIS, 85\n";
@@ -64,7 +78,7 @@ namespace TestScoreSorter
             Assert.AreEqual(85, scorerCreate.scores[3].score);
         }
 
-        [TestMethod]
+        [Test]
         public void TestGradedScores()
         {
             string strInputScores = "BUNDY, TERESSA, 88\nSMITH, ALLAN, 70\nKING, MADISON, 88\nSMITH, FRANCIS, 85\n";
