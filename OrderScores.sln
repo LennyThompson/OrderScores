@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestScoreSorter", "TestScor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CAB23507-0E62-4EFE-AC5B-2A3EB393ED1E}"
 	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
 		scores.txt = scores.txt
 	EndProjectSection
 EndProject
