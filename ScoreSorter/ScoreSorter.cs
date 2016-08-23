@@ -72,13 +72,13 @@ namespace ScoreSorter
             return scrorerReturn;
         }
 
-        // Get teh raw scores
+        // Get the raw scores
         public List<Score> scores
         {
             get { return m_listScores; }
         }
 
-        // Get teh scores soreter by descendeing score, last name then first name
+        // Get the scores sorted by descendeing score, last name then first name
         
         public List<Score> sortedScores
         {
