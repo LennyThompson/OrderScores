@@ -8,6 +8,8 @@ using System.IO;
 
 namespace ScoreSorter
 {
+    // Just a conatiner class for the name and score...
+    
     public class Score
     {
         public Score(string strFirstName, string strLastName, int nScore)
@@ -34,6 +36,9 @@ namespace ScoreSorter
             set;
         }
     }
+    
+    // Something to accumulate scores into
+    
     public class Scorer
     {
         static Regex SCORE_PARSER = new Regex("^([A-Z]+),\\s([A-Z]+),\\s(\\d+)");
@@ -67,14 +72,14 @@ namespace ScoreSorter
             return scrorerReturn;
         }
 
+        // Get the raw scores
         public List<Score> scores
         {
             get { return m_listScores; }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        // Get the scores sorted by descendeing score, last name then first name
+        
         public List<Score> sortedScores
         {
             get
