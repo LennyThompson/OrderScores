@@ -68,7 +68,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Mono|AnyCPU'">
     <PostBuildEvent>cp $(SolutionDir)scores.txt $(TargetDir)
-	mono "$(TargetPath)" scores.txt</PostBuildEvent>
+	mono $(TargetPath) scores.txt
+	cat $(TargetDir)scores-graded.txt</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PostBuildEvent>copy "$(SolutionDir)"scores.txt "$(TargetDir)"</PostBuildEvent>
