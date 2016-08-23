@@ -1,4 +1,4 @@
 language: csharp
 solution: OrderScores.sln
 script:
-  - xbuild /p:Configuration=Release-Mono solution-name.sln
+  - xbuild /p:Configuration=Release-Mono OrderScores.sln
