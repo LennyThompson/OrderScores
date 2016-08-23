@@ -126,7 +126,7 @@
     <PostBuildEvent>"$(SolutionDir)"packages\NUnit.ConsoleRunner.3.4.1\tools\nunit3-console.exe "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Mono|AnyCPU' ">
-    <PostBuildEvent>$(SolutionDir)packages/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>mono $(SolutionDir)packages/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
